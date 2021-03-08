@@ -951,7 +951,7 @@ void ofCairoRenderer::setupScreenPerspective(float width, float height, float fo
 
 	float eyeX = viewW / 2;
 	float eyeY = viewH / 2;
-	float halfFov = PI * fov / 360;
+	float halfFov = M_PI * fov / 360;
 	float theTan = tanf(halfFov);
 	float dist = eyeY / theTan;
 	float aspect = (float) viewW / viewH;
@@ -1296,7 +1296,7 @@ void ofCairoRenderer::drawTriangle(float x1, float y1, float z1, float x2, float
 //----------------------------------------------------------
 void ofCairoRenderer::drawCircle(float x, float y, float z, float radius) const{
 	cairo_new_path(cr);
-	cairo_arc(cr, x,y,radius,0,2*PI);
+	cairo_arc(cr, x,y,radius,0,2*M_PI);
 
 	cairo_close_path(cr);
 
@@ -1326,7 +1326,7 @@ void ofCairoRenderer::drawEllipse(float x, float y, float z, float width, float 
 	mutThis->translate(0,-y*ellipse_ratio);
 	mutThis->scale(1,ellipse_ratio);
 	mutThis->translate(0,y/ellipse_ratio);
-	cairo_arc(cr,x,y,width*0.5,0,2*PI);
+	cairo_arc(cr,x,y,width*0.5,0,2*M_PI);
 	mutThis->popMatrix();
 
 	cairo_close_path(cr);
