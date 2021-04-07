@@ -177,6 +177,11 @@ public:
 	HWND 		getWin32Window();
 #endif
 
+#if defined(TARGET_LINUX) && !defined(TARGET_RASPBERRY_PI_LEGACY)
+	void setWindowIcon(const std::string & path);
+	void setWindowIcon(const ofPixels & iconPixels);
+#endif
+
 private:
 	static ofAppGLFWWindow * setCurrent(GLFWwindow* windowP);
 	static void 	mouse_cb(GLFWwindow* windowP_, int button, int state, int mods);
@@ -194,8 +199,6 @@ private:
 	void close();
 
 #if defined(TARGET_LINUX) && !defined(TARGET_RASPBERRY_PI_LEGACY)
-	void setWindowIcon(const std::string & path);
-	void setWindowIcon(const ofPixels & iconPixels);
 	XIM xim;
 	XIC xic;
 #endif

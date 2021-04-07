@@ -65,6 +65,11 @@ public:
 
 	ofCoreEvents & events();
 	std::shared_ptr<ofBaseRenderer> & renderer();
+	
+#ifdef TARGET_LINUX
+	void setWindowIcon(const std::string & path);
+	void setWindowIcon(const ofPixels & iconPixels);
+#endif
 
 private:
 	static void display(void);
@@ -84,10 +89,7 @@ private:
 	std::string displayString;
 
 	bool iconSet;
-#ifdef TARGET_LINUX
-	void setWindowIcon(const std::string & path);
-	void setWindowIcon(const ofPixels & iconPixels);
-#endif
+
 	
 	ofCoreEvents coreEvents;
 	std::shared_ptr<ofBaseRenderer> currentRenderer;
