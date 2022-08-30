@@ -17,9 +17,10 @@ using ofDefaultVec4 = glm::vec4;
 #endif
 
 
-#ifndef PI
-	#define PI       3.14159265358979323846
-#endif
+// Do NOT define PI, use M_PI instead
+//#ifndef PI
+//	#define PI       3.14159265358979323846
+//#endif
 
 #ifndef TWO_PI
 	#define TWO_PI   6.28318530717958647693
@@ -38,11 +39,11 @@ using ofDefaultVec4 = glm::vec4;
 #endif
 
 #ifndef DEG_TO_RAD
-	#define DEG_TO_RAD (PI/180.0)
+	#define DEG_TO_RAD (M_PI/180.0)
 #endif
 
 #ifndef RAD_TO_DEG
-	#define RAD_TO_DEG (180.0/PI)
+	#define RAD_TO_DEG (180.0/M_PI)
 #endif
 
 #ifndef MIN

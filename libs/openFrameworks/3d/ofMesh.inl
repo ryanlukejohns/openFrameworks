@@ -1951,7 +1951,7 @@ ofMesh_<V,N,C,T> ofMesh_<V,N,C,T>::sphere( float radius, int res, ofPrimitiveMod
 	ofMesh_<V,N,C,T> mesh;
 
 	float doubleRes = res*2.f;
-	float polarInc = PI/(res); // ringAngle
+	float polarInc = M_PI/(res); // ringAngle
 	float azimInc = TWO_PI/(doubleRes); // segAngle //
 
 	if(mode != OF_PRIMITIVE_TRIANGLE_STRIP && mode != OF_PRIMITIVE_TRIANGLES) {
@@ -1964,8 +1964,8 @@ ofMesh_<V,N,C,T> ofMesh_<V,N,C,T>::sphere( float radius, int res, ofPrimitiveMod
 
 	for(float i = 0; i < res+1; i++) {
 
-		float tr = sin( PI-i * polarInc );
-		float ny = cos( PI-i * polarInc );
+		float tr = sin( M_PI-i * polarInc );
+		float ny = cos( M_PI-i * polarInc );
 
 		tcoord.y = 1.f - (i / res);
 
@@ -2174,7 +2174,7 @@ ofMesh_<V,N,C,T> ofMesh_<V,N,C,T>::icosphere(float radius, std::size_t iteration
 		float alpha;
 		alpha = atan2f(vec.z,vec.x);
 		u = alpha/TWO_PI+.5f;
-		v = atan2f(vec.y, r0)/PI + .5f;
+		v = atan2f(vec.y, r0)/M_PI + .5f;
 		// reverse the u coord, so the default is texture mapped left to
 		// right on the outside of a sphere 
 		// reverse the v coord, so that texture origin is at top left
